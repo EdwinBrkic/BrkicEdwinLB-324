@@ -1,0 +1,67 @@
+name: Anforderung
+description: Neue Funktionalität oder Änderung als Anforderung festhalten
+title: "[Anforderung] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Aufbau einer Anforderung:
+        **Zielsystem + Priorität + Systemaktivität + allfällige Ergänzungen + Funktionalität + Bedingungen**
+
+        Beispiel: *Tagebbbuch-Applikation muss dem Benutzer die Möglichkeit bieten, einen Eintrag mit einem Emoji zu versehen, falls der Benutzer eingeloggt ist.*
+
+        Den Typ (Funktionale Anforderung, Qualitätsanforderung, Randanforderung) setzt du danach als Label.
+  - type: input
+    id: zielsystem
+    attributes:
+      label: Zielsystem
+      description: Das betroffene (Teil-)System.
+      placeholder: Tagebbbuch-Applikation
+    validations:
+      required: true
+  - type: dropdown
+    id: prioritaet
+    attributes:
+      label: Priorität
+      description: muss = hoch, soll = mittel, wird = niedrig.
+      options:
+        - muss (hohe Priorität)
+        - soll (mittlere Priorität)
+        - wird (niedrige Priorität)
+    validations:
+      required: true
+  - type: dropdown
+    id: systemaktivitaet
+    attributes:
+      label: Systemaktivität
+      description: Handelt das System selbständig, bietet es dem Benutzer eine Funktion an oder braucht es eine Schnittstelle?
+      options:
+        - selbständig (das System handelt von sich aus)
+        - dem Benutzer die Möglichkeit bieten (Benutzerfunktion)
+        - fähig sein (Schnittstelle)
+    validations:
+      required: true
+  - type: input
+    id: ergaenzungen
+    attributes:
+      label: Ergänzungen
+      description: Optional, z. B. Objekt, Quelle oder Ziel der Funktionalität.
+  - type: textarea
+    id: funktionalitaet
+    attributes:
+      label: Funktionalität
+      description: Was soll das System tun?
+    validations:
+      required: true
+  - type: textarea
+    id: bedingungen
+    attributes:
+      label: Bedingungen
+      description: Zeitliche Bedingungen mit «wenn», logische Bedingungen mit «falls». Optional.
+  - type: textarea
+    id: satz
+    attributes:
+      label: Anforderung als ganzer Satz
+      description: Die Angaben oben zu einem Satz zusammengesetzt.
+    validations:
+      required: true

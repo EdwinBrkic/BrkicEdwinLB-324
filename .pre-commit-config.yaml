@@ -1,0 +1,21 @@
+# pre-commit install installiert beide Hook-Typen (commit und push)
+default_install_hook_types: [pre-commit, pre-push]
+
+repos:
+  # Bei jedem commit wird der Code automatisch formatiert
+  - repo: https://github.com/psf/black
+    rev: 24.8.0
+    hooks:
+      - id: black
+        stages: [pre-commit]
+
+  # Bei jedem push werden die Tests ausgeführt
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: pytest
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [pre-push]
